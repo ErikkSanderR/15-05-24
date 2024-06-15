@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="mydiv"></div>
+
+    <script type="text/babel">
+
+        const inputlogin = React.createRef();
+        const input_login = (
+            <input
+                type={"text"}
+                key={"txt_login"}
+                id={"label_login"}
+                name={"txt_login"}
+                ref={inputlogin}
+            />
+        );
+
+        const label_login = (
+            <label
+                for={input_login}
+            >digite seu Login:
+            </label>
+        );
+
+        const inputsenha = React.createRef();
+        const input_senha = (
+            <input
+                type={"text"}
+                key={"txt_senha"}
+                id={"label_senha"}
+                name={"txt_senha"}
+                ref={inputsenha}
+            />
+        );
+
+        const label_senha = (
+            <label
+                for={input_senha}
+            >digite sua senha:
+            </label>
+        );
+
+        const btn_login = (
+            <button
+                id={"btn_login"}
+                key={"btn_login"}
+            >Login
+            </button>
+        );
+
+        const frm_login = (
+            <form
+                id={"frm_login"}
+                key={"frm_login"}
+                method={"post"}
+                action={"./logar.php"}
+            >
+                {label_login}
+                {input_login}
+                {label_senha}
+                {input_senha}
+                {btn_login}
+            </form>
+        );
+
+        function Formulario() {
+            return frm_login;
+        }
+
+        const container = document.getElementById('mydiv');
+        const root = ReactDOM.createRoot(container);
+        root.render(<Formulario />)
+    </script>
+
+</body>
+
+</html>
